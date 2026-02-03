@@ -418,6 +418,10 @@ class TypesenseBackend(SearchBackend):
 
         for element in content.find_all(["h1", "h2", "h3", "h4", "p", "li"]):
             tag = element.name
+
+            for headerlink in element.select(".headerlink"):
+                headerlink.decompose()
+
             text = element.get_text(strip=True)
 
             if not text:
