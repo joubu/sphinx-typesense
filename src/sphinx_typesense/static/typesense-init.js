@@ -99,6 +99,7 @@
           group_limit: 3,
           num_typos: config.numTypos || 2,
           per_page: config.perPage || 10,
+          filter_by: config.filterBy || "",
         },
         placeholder: config.placeholder || "Search...",
       });
