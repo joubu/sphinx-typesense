@@ -580,6 +580,16 @@ class TypesenseBackend(SearchBackend):
             sibling_id = prev_sibling.get("id", "")
             return str(sibling_id) if sibling_id else ""
 
+        section = element.find_parent("section")
+        if section:
+            # Prefer explicit label anchors used by :ref:
+            label = section.find("span", id=True)
+            if label:
+                return label["id"]
+
+            if section.get("id"):
+                return section["id"]
+
         return ""
 
     def _get_weight(self, doc_type: str) -> int:
