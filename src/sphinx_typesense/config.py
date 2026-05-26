@@ -152,6 +152,8 @@ def setup_config(app: Sphinx) -> None:
     app.add_config_value("typesense_enable_indexing", default=True, rebuild="html")
     app.add_config_value("typesense_drop_existing", default=False, rebuild="html")
 
+    app.add_config_value("typesense_connection_timeout", 10, "html")
+
     logger.debug("sphinx-typesense: Configuration values registered successfully")
 
 
